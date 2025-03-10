@@ -5,7 +5,12 @@ def create_database():
     con = sqlite3.connect('bond_movies.db')
     cur = con.cursor()
 
-    create_table_query = """ (Year INTEGER, Movie TEXT, Bond TEXT, Avg_User_IMDB REAL) """
+    create_table_query =""" CREATE TABLE IF NOT EXISTS movies (
+                                Year INTEGER,
+                                Movie TEXT,
+                                Bond TEXT,
+                                Avg_User_IMDB REAL)
+                        """
     cur.execute(create_table_query)
     con.commit()
     con.close()
